@@ -6,13 +6,21 @@ const NavBar = () => {
         //fragment, etiqueta fantasma: <> </>
         <> 
         <div>
-            <h1>Logo</h1>
-            <ul>
-                <li>Inicio</li>
-                <li>Productos</li>
-                <li>Sobre Mi</li>
-                <li>Contacto</li>
-            </ul>
+            <div className='navbar'>
+                <div>
+                    <img src='/assets/logo.jpeg' height="70px" width="70px" alt='Logo' ></img>
+                    <h1>Rosaura</h1>
+                </div>
+                <div>
+                    <ul>
+                        <li>Inicio</li>
+                        <li>Productos</li>
+                        <li>Restauraciones</li>
+                        <li>Sobre Mi</li>
+                        <li>Contacto</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         </>
     )

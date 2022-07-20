@@ -1,0 +1,29 @@
+
+//modal en la pagina , tipo pop up
+import './Modal.css'
+
+
+const Modal = ({title, children}) => {
+    return (
+    <div className="modal-custom">
+        <h2>{title}</h2>
+        {children}
+    </div>
+    )
+}
+
+export default Modal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
