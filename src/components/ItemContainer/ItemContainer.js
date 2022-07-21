@@ -49,5 +49,27 @@ export default ItemContainer
 
 
 
+//PROMESAS
+const logPromise = new Promise( (resolve, reject) => {
+    resolve("La promesa se cumplio correctamente")
+})
+
+logPromise
+//THEN
+.then( (data) => {                  //respuesta OK
+    console.log(data)
+})
+
+//CATCH
+.catch( (error) => {                   //Respuesta cuando falla 
+    console.log("la llamada fallo")
+})
+
+//FINALLY                               //Se ejecuta SIEMPRE 
+/* .finally( () => {
+    setSpinner(false)
+}) */
+
+//el finally se ejecuta en los dos casos
 
 

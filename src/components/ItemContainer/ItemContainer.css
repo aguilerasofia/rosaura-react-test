@@ -3,3 +3,19 @@
     flex-flow: column;
     justify-content: center;
 }
+
+
+.products-list{
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+}
+
+h2{
+    font-size: 200%;
+    font-weight: 90;
+    color: #d4a373;
+    text-align: center;
+}
+
+

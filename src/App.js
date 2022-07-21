@@ -4,6 +4,7 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import ItemContainer from './components/ItemContainer/ItemContainer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import Modal from './components/Modal/Modal';
 
 
