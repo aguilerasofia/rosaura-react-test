@@ -9,6 +9,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
+
+  /* CONSUMIR UNA API CON FETCH (GET por defecto)
+  fetch("URL")
+  .then((response) => {
+    return response.json()
+  })
+  .then( (data) => {
+    console.log("informacion q traigo", data)
+  })
+   */
+
+
   const styleApp = {padding: "10px 20px", marginTop: 10}
   return (
     //JSX

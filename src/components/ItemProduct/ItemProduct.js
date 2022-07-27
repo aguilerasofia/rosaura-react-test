@@ -12,12 +12,14 @@ const ItemProduct = ({data}) => {
     //const {title, price} = props
 
     const addProduct = () => {
+        if (counter < stock){
         setCounter(counter + 1)
-    }
+    }}
 
     const removeProduct = () => {
+        if (counter > 1){
         setCounter(counter - 1)
-    }
+    }} 
 
     return(
         <div>
