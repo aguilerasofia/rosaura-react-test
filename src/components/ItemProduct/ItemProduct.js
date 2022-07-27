@@ -1,38 +1,21 @@
+import ItemCount from '../ItemCount/ItemCount'
 //importo hoja de estilos
-import { useState } from 'react'
 import './ItemProduct.css'
 
 
 const ItemProduct = ({data}) => {
-
-    const [counter, setCounter] =  useState(1) 
     
     const {title, image, price, stock} = data
     //console.log ("Propiedades", props)
     //const {title, price} = props
 
-    const addProduct = () => {
-        if (counter < stock){
-        setCounter(counter + 1)
-    }}
-
-    const removeProduct = () => {
-        if (counter > 1){
-        setCounter(counter - 1)
-    }} 
 
     return(
         <div>
             <img src={`/assets/${image}`} height="100px" width="100px" alt='Productos' ></img>
             <p>{title}</p>
             <span>{price}</span>
-            <div className = "button-buy">
-                <button onClick={removeProduct}>-</button>
-                <p>{counter}</p>
-                <button onClick={addProduct}>+</button>
-            </div>
-            <p> stock: {stock}</p>
-            <button /* onClick={funcion} */> Comprar </button>
+            <ItemCount stock={stock}></ItemCount>
         </div>
     )
 }
