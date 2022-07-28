@@ -1,26 +1,48 @@
-import { useEffect } from "react"
-import ItemProduct from "../ItemProduct/ItemProduct"
+import { useState, useEffect } from "react"
 import './ItemContainer.css'
+import ItemList from "../ItemList/ItemList"
+import products from "../../utils/products"
+
+
 
 const ItemContainer = ({section}) => {
-    const product1 = {
-        title: "Comoda",
-        price: 15000,
-        image: "comoda.jpeg",
-        stock: 6
-    }
-    const product2 = {
-        title: "Perchero",
-        price: 5000,
-        image: "perchero.jpeg",
-        stock: 3
-    }
-    const product3 = {
-        title: "Mesa",
-        price: 7000,
-        image: "mesa.jpeg",
-        stock: 7
-    }
+
+    const [listProducts, setListProducts] = useState([])
+
+    const getProducts = new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            resolve(products)
+        }, 2000) 
+    })
+
+    useEffect(() => {
+        getProducts
+            .then( (res) => { // Respuesta OK
+                //console.log("Productos: ", res)
+                setListProducts(res)
+            })
+            .catch( (error) => { // Falla la respuesta
+                console.log("la llama fallo")
+            })
+            .finally( () => { // Siempre que termina por OK o Fallo
+            //setSpinner(false) 
+            })
+    },)
+
+
+    return(
+        <div className='list-products'>
+            <h2>{section}</h2>
+            <ItemList dataProducts={listProducts}/>
+        </div>
+    )
+}
+
+export default ItemContainer
+
+/* 
+const ItemContainer = ({section}) => {
+
 
     useEffect( () => {
         console.log("Ejecuto en la fase de montaje")
@@ -30,18 +52,7 @@ const ItemContainer = ({section}) => {
         //)
     }, [])
 
-    return (
-    <div className="products-list">
-        <h2>{section}</h2>
-        <ItemProduct data={product1}></ItemProduct>  
-        <ItemProduct data={product2}></ItemProduct>   
-        <ItemProduct data={product3}></ItemProduct> 
-    
-    </div>
-    )
-}
 
-export default ItemContainer
 
 //useEffect llama a la api una sola vez , se ejecuta solamente en la fase de montaje
 //primer parametro le paso la funcion, segundo parametro le paso el array vacio para q se ejecute solo en la fase de montaje

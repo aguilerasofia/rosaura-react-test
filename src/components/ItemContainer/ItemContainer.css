@@ -5,7 +5,7 @@
 }
 
 
-.products-list{
+.list-products{
     display: flex;
     justify-content: space-around;
     margin: 5px;

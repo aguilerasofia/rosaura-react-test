@@ -6,20 +6,11 @@ import NavBar from './components/NavBar/NavBar'
 import ItemContainer from './components/ItemContainer/ItemContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Modal from './components/Modal/Modal';
+//importar de react router dom
+//import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
 function App() {
-
-  /* CONSUMIR UNA API CON FETCH (GET por defecto)
-  fetch("URL")
-  .then((response) => {
-    return response.json()
-  })
-  .then( (data) => {
-    console.log("informacion q traigo", data)
-  })
-   */
-
 
   const styleApp = {padding: "10px 20px", marginTop: 10}
   return (
@@ -28,8 +19,6 @@ function App() {
       <NavBar></NavBar>
       <div className="main-container">
       <ItemContainer section="Productos actuales"></ItemContainer>
-      <ItemContainer section= "Mas productos"></ItemContainer>
-      <ItemContainer section="Productos destacados"></ItemContainer>
       </div>
 {/*       <Modal title="Modal de registro">
         <ItemContainer></ItemContainer>
@@ -43,3 +32,23 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+  /* CONSUMIR UNA API CON FETCH (GET por defecto)
+  fetch("URL")
+  .then((response) => {
+    return response.json()
+  })
+  .then( (data) => {
+    console.log("informacion q traigo", data)
+  })
+   */
