@@ -3,31 +3,29 @@
 
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
-import ItemContainer from './components/ItemContainer/ItemContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Modal from './components/Modal/Modal';
 //importar de react router dom
-//import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+import Contact from './pages/Contact'
+//import Modal from './components/Modal/Modal';
 
 
 function App() {
 
-  const styleApp = {padding: "10px 20px", marginTop: 10}
   return (
-    //JSX
-    <div className="container" style= {styleApp}>
-      <NavBar></NavBar>
-      <div className="main-container">
-      <ItemContainer section="Productos actuales"></ItemContainer>
-      </div>
-{/*       <Modal title="Modal de registro">
-        <ItemContainer></ItemContainer>
-        <form>
-          <input tipe="text"></input>
-          <button> enviar</button>
-        </form>
-      </Modal> */}
-    </div>
+    <BrowserRouter>
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/products" element={<h1>Productos</h1>}/>
+      <Route path='/products/:id' element={<Detail />}/>
+      <Route path="/contact" element={<Contact />}/>
+      {/* <Route path='/cart' element={<Checkout />}/> */}
+      <Route path="*" element={<h1>ERROR 404 -  pagina no encontrada</h1>}/>
+    </Routes>
+</BrowserRouter>
   );
 }
 

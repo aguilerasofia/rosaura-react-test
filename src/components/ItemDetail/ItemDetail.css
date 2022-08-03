@@ -1,4 +1,4 @@
-.product{
+.product-card{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -6,6 +6,3 @@
     padding: 8px;
     width: max-content;
 }
-
-
-

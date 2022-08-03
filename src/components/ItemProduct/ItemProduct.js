@@ -1,22 +1,25 @@
 import ItemCount from '../ItemCount/ItemCount'
 //importo hoja de estilos
 import './ItemProduct.css'
+import { Link } from 'react-router-dom'
 
 
 const ItemProduct = ({data}) => {
     
-    const {title, image, price, stock} = data
+    const {title, image, price, stock, id} = data
     //console.log ("Propiedades", props)
     //const {title, price} = props
 
 
     return(
-        <div>
-            <img src={`/assets/${image}`} height="100px" width="100px" alt='Productos' ></img>
-            <p>{title}</p>
-            <span>{price}</span>
-            <ItemCount stock={stock}></ItemCount>
-        </div>
+            <div className='product'>
+                <Link to={`/products/${id}`}>
+                <img src={`/assets/${image}`} height="100px" width="100px" alt='Productos' ></img>
+                <p>{title}</p>
+                </Link>
+                <span>{price}</span>
+                <ItemCount stock={stock}></ItemCount>
+            </div>
     )
 }
 

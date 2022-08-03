@@ -31,9 +31,11 @@ const ItemContainer = ({section}) => {
 
 
     return(
-        <div className='list-products'>
+        <div className="main-container">
             <h2>{section}</h2>
+        <div className='list-products'>
             <ItemList dataProducts={listProducts}/>
+        </div>
         </div>
     )
 }
@@ -82,5 +84,7 @@ logPromise
 }) */
 
 //el finally se ejecuta en los dos casos
+
+
 
 

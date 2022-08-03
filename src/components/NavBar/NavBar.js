@@ -1,5 +1,6 @@
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return(
@@ -13,11 +14,10 @@ const NavBar = () => {
                 </div>
                 <div>
                     <ul>
-                        <li>Inicio</li>
-                        <li>Productos</li>
-                        <li>Restauraciones</li>
-                        <li>Sobre Mi</li>
-                        <li>Contacto</li>
+                    <Link to="/"><li><button>Inicio</button></li></Link>
+                    <Link to="/products"><li><button>Productos</button></li></Link>
+                    <Link to=""><li><button>About Us</button></li></Link>
+                    <Link to="/contact"><li><button>Contacto</button></li></Link>
                     </ul>
                 </div>
                 <CartWidget></CartWidget>
@@ -34,7 +34,8 @@ export default NavBar
 
 
 
-
+//href para links externos 
+//link para links internos , otras rutas en el mismo sitio
 
 
 
