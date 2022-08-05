@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom'
 
 const ItemProduct = ({data}) => {
     
-    const {title, image, price, stock, id} = data
+    const {title, image, price, stock, id, category} = data
     //console.log ("Propiedades", props)
     //const {title, price} = props
 
 
     return(
             <div className='product'>
-                <Link to={`/products/${id}`}>
+                <Link to={`/products/${category}/${id}`}>
                 <img src={`/assets/${image}`} height="100px" width="100px" alt='Productos' ></img>
                 <p>{title}</p>
                 </Link>

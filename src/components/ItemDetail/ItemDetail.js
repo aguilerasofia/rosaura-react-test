@@ -10,9 +10,12 @@ const ItemDetail = ({data}) => {
             </div>
             <div>
                 <h2>{data.title}</h2>
+                <p>{data.category}</p>
                 <p>$ {data.price}</p>
             </div>
         </div>
+
+    
         </>
     )
 }
