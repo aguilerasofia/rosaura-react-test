@@ -1,4 +1,3 @@
-import ItemCount from '../ItemCount/ItemCount'
 //importo hoja de estilos
 import './ItemProduct.css'
 import { Link } from 'react-router-dom'
@@ -6,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const ItemProduct = ({data}) => {
     
-    const {title, image, price, stock, id, category} = data
+    const {title, image, price, id, category} = data
     //console.log ("Propiedades", props)
     //const {title, price} = props
 
@@ -18,7 +17,6 @@ const ItemProduct = ({data}) => {
                 <p>{title}</p>
                 </Link>
                 <span>{price}</span>
-                <ItemCount stock={stock}></ItemCount>
             </div>
     )
 }
