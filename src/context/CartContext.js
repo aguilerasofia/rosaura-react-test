@@ -5,25 +5,25 @@ const CartContext = createContext()
 
 const CartProvider = ({children}) => {
 
-    const [name, setName] = useState("Sofia")
+    const [cartProducts, setCartProducts] = useState([]) 
 
-    const handleClick = () => { 
-        console.log("funcion desde context")
+
+    const addProductToCart = (product) => {
+        setCartProducts(cartProducts => [...cartProducts, product])
     }
 
     const data = {
-        name, 
-        setName,
-        handleClick
+        cartProducts,
+        setCartProducts,
+        addProductToCart
     }
 
     return(
-        <CartContext.Provider value={setName}>
+        <CartContext.Provider value={data}>
             {children}
         </CartContext.Provider>
     )
 }
-
 
 
 

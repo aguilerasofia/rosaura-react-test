@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 //importo hoja de estilos
 import './ItemCount.css'
+import { CartContext } from '../../context/CartContext'
 
+const ItemCount = ({stock, setQuantitySelected, productData}) => {
 
-const ItemCount = ({stock, setQuantitySelected}) => {
+    const {addProductToCart} = useContext(CartContext)
 
     const [counter, setCounter] =  useState(1) 
     
@@ -18,6 +20,7 @@ const ItemCount = ({stock, setQuantitySelected}) => {
     }} 
 
     const onAdd = () => {
+        addProductToCart(productData)
         setQuantitySelected(counter)
     }
 
