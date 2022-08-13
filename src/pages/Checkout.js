@@ -6,31 +6,30 @@ const Checkout = () => {
     const {cartProducts} = useContext(CartContext)
     
 
-    {cartProducts.map((product) => {
-
-    return (
-        <div>
-
-        <div>
-            <h1> Pagina de Checkout </h1>
-        </div>
-
-        <div key={product.id}>
-            <img src={`/assets/${product.image}`} alt="">
-            {" "}
-            </img>
+    return(
+        <>
             <div>
-            <p>{product.title}</p>
+                <h1> Pagina de Checkout </h1>
             </div>
             <div>
-            <p>$ {product.price}</p>
+                {
+                cartProducts.map((product) => (
+                <div>
+                    <div key={product.id}>
+                        <img src={`/assets/${product.image}`} alt="" height="200px" width="200px"/>
+                        <div>
+                            <p>{product.title}</p>
+                        </div>
+                        <div>
+                            <p>${product.price}</p>
+                        </div>
+                    </div>
+                </div>
+                ))
+                }
             </div>
-        </div>
-
-        </div>
-    );
-
-})}
+        </>
+    )
 
 }
 

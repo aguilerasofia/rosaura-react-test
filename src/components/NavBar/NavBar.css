@@ -11,8 +11,6 @@
 }
 
 .navbar ul li:hover{
-        text-decoration: underline;
-        color: #a4784cbf; 
         transform: scale(1.1);
 }
 
@@ -39,4 +37,17 @@ h1 {
 .navbar img{
     align-self: center;
 }
+
+.link:hover{
+    text-decoration: none;
+    color: #a4784cbf; 
+}
+
+.link{
+    text-decoration: none;
+    color: #a4784cbf; 
+}
+
+
+
 
