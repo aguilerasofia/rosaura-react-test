@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-between;
     color: #d4a373;
+    margin-right: 0.8rem;
 }
 
 .navbar div{

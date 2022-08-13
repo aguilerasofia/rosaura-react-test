@@ -7,21 +7,21 @@ const ItemCount = ({stock, setQuantitySelected, productData}) => {
 
     const {addProductToCart} = useContext(CartContext)
 
-    const [counter, setCounter] =  useState(1) 
+    const [quantity, setQuantity] =  useState(1) 
     
     const addProduct = () => {
-        if (counter < stock){
-        setCounter(counter + 1)
+        if (quantity < stock){
+        setQuantity(quantity + 1)
     }}
 
     const removeProduct = () => {
-        if (counter > 1){
-        setCounter(counter - 1)
+        if (quantity > 1){
+        setQuantity(quantity - 1)
     }} 
 
     const onAdd = () => {
-        addProductToCart(productData)
-        setQuantitySelected(counter)
+        addProductToCart(productData, quantity)
+        setQuantitySelected(quantity)
     }
 
 
@@ -30,7 +30,7 @@ const ItemCount = ({stock, setQuantitySelected, productData}) => {
             <div className='buy'>
                 <div className = "button-buy">
                 <button onClick={removeProduct}>-</button>
-                <p>{counter}</p>
+                <p>{quantity}</p>
                 <button onClick={addProduct}>+</button>
                 </div>
             <p> stock: {stock}</p>

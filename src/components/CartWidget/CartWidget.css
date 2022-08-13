@@ -1,0 +1,9 @@
+.cart a{
+    margin-left: 0.5rem;
+    text-decoration: none;
+    color: #d4a373;
+}
+
+.cart a:hover{
+    color: #d4a373;
+}
