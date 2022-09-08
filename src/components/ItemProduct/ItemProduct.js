@@ -13,7 +13,7 @@ const ItemProduct = ({data}) => {
     return(
             <div className='product'>
                 <Link to={`/products/${category}/${id}`}>
-                <img src={`/assets/${image}`} height="100px" width="100px" alt='Productos' ></img>
+                <img src={`/assets/${image}`} height="100px" width="100px" alt={title} ></img>
                 <p>{title}</p>
                 </Link>
                 <span>{price}</span>

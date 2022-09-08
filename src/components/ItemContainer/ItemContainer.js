@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
 import './ItemContainer.css'
 import ItemList from "../ItemList/ItemList"
-import products from "../../utils/products"
 import { useParams } from "react-router-dom"
-
+//FIREBASE
+import { collection, getDocs } from "firebase/firestore"
+import db from "../../utils/firebaseConfig"
 
 
 const ItemContainer = ({section}) => {
@@ -12,28 +13,28 @@ const ItemContainer = ({section}) => {
     
     const {categoryId} = useParams()
 
-    const getProducts = new Promise( (resolve) => {
-        setTimeout( () => {
-            resolve(products)
-        }, 1000) 
-    })
+    const getProducts = async () =>{
+        const productsCollection = collection(db, "products")
+        const docSnapshot = await getDocs(productsCollection)
+        const data = docSnapshot.docs.map(product => product.data())
+        return data
+    } 
 
     useEffect(() => {
+        const handleProducts = async () => {
+            const res = await getProducts()
+            console.log(JSON.stringify(res, null, 2))
 
-        if(categoryId){
-            getProducts
-            .then((res) => {
+
+            if(categoryId){
                 setListProducts(res.filter(products => products.category === categoryId))
-            })
-
-        } else{
-            getProducts
-            .then( (res) => { 
+            } else{
                 setListProducts(res)
-            })
+            }
         }
-    }, [categoryId])
 
+        handleProducts()
+    }, [categoryId])
 
     return(
         <div className="main-container">
@@ -45,7 +46,11 @@ const ItemContainer = ({section}) => {
     )
 }
 
-export default ItemContainer
+    export default ItemContainer
+
+
+
+    //FIREBASE
 
 /* 
 const ItemContainer = ({section}) => {
