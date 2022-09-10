@@ -1,0 +1,26 @@
+.buttonsCart{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    padding: 10px;
+}
+
+.cartProducts{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.empty-cart{
+    display: flex;
+    justify-content: center;
+    color:  rgba(201, 140, 151, 0.885);
+    font-size: 180%;
+}
+
+h2{
+    color: #d4a373;
+    text-align: center;
+    font-size: 200%;
+}

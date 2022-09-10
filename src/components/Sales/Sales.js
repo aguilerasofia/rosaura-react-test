@@ -71,7 +71,7 @@ const Sales = () => {
             <div className='last-card'>
                 <div className='selected-products'>
                     <h3>Su compra:</h3>
-                    {cartProducts.map((product) => <p key={product.id} product={product.title}> {product.title}: {product.quantity} unidades ${product.price * product.quantity}</p>)}
+                    {cartProducts.map((product) => <p key={product.id} product={product.title}> {product.title} x {product.quantity} unidades de ${product.price} = ${product.price * product.quantity}</p>)}
                     Total: ${totalPrice}
                 </div>
                     <p><b>Ingrese sus datos para finalizar:</b></p>
@@ -141,7 +141,7 @@ const Sales = () => {
                         <div>
                         </div>
                         <div className='continue'>
-                            <Link to="/" ><button>Seguir comprando:</button></Link>
+                            <Link to="/" ><button>Seguir comprando</button></Link>
                         </div>
                     </div>                   
 

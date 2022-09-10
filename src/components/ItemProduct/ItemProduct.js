@@ -16,7 +16,7 @@ const ItemProduct = ({data}) => {
                 <img src={`/assets/${image}`} height="100px" width="100px" alt={title} ></img>
                 <p>{title}</p>
                 </Link>
-                <span>{price}</span>
+                <span>${price}</span>
             </div>
     )
 }
