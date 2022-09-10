@@ -34,6 +34,8 @@ const Checkout = () => {
                             <p>Cantidad: {product.quantity}</p>
                         </div>
                         <button onClick={()=> removeProduct(product)}>Eliminar producto</button>
+                        <Link to="/sales"><button>Finalizar compra</button></Link>
+                        <Link to="/"><button>Seguir comprando</button></Link>
                     </div>
                 </div>
                 ))

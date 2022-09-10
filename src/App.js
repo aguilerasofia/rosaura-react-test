@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import CartProvider from "./context/CartContext";
 import Cart from "./components/Cart/Cart"
+import Sales from "./components/Sales/Sales";
 //import Modal from './components/Modal/Modal';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/products/:category/:id" element={<Detail />} />
           <Route path="/category/:categoryId" element={<Home/>} />
           <Route path='/cart' element={<Cart />}/>
+          <Route path='/sales' element={<Sales />}/>
           <Route path="*" element={<h1>ERROR 404 - pagina no encontrada</h1>} />
         </Routes>
       </BrowserRouter>

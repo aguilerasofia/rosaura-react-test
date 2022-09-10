@@ -3,38 +3,53 @@ import './ItemContainer.css'
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 //FIREBASE
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, query, where } from "firebase/firestore"
 import db from "../../utils/firebaseConfig"
 
 
-const ItemContainer = ({section}) => {
+//FIREBASE
 
-    const [listProducts, setListProducts] = useState([])
-    
-    const {categoryId} = useParams()
+    const ItemContainer = ({section}) => {
 
-    const getProducts = async () =>{
-        const productsCollection = collection(db, "products")
-        const docSnapshot = await getDocs(productsCollection)
-        const data = docSnapshot.docs.map(product => product.data())
-        return data
-    } 
+        const [listProducts, setListProducts] = useState([])
+        
+        const {categoryId} = useParams()
 
     useEffect(() => {
-        const handleProducts = async () => {
-            const res = await getProducts()
-            console.log(JSON.stringify(res, null, 2))
 
+    const productsCollection = collection(db, "products")
+    const q = query(productsCollection, where("category", "==", `${categoryId}`))
 
-            if(categoryId){
-                setListProducts(res.filter(products => products.category === categoryId))
-            } else{
-                setListProducts(res)
-            }
+    if(categoryId){
+        getDocs(q)
+        .then(result => {
+            const listResult = result.docs.map(product =>{
+                return{
+                id: product.id,
+                ...product.data(),
+                } 
+            })
+            setListProducts(listResult)
+        })
+        .catch((error) => {
+        console.log(error)
+        })
+        }else{
+            getDocs(productsCollection)
+            .then(result => {
+            const listResult = result.docs.map(product =>{
+                return{
+                id: product.id,
+                ...product.data(),
+            } 
+            })
+            setListProducts(listResult)
+            })
+            .catch((error) => {
+            console.log(error)
+            })
         }
-
-        handleProducts()
-    }, [categoryId])
+    }, [categoryId]);
 
     return(
         <div className="main-container">
@@ -46,11 +61,8 @@ const ItemContainer = ({section}) => {
     )
 }
 
-    export default ItemContainer
+export default ItemContainer
 
-
-
-    //FIREBASE
 
 /* 
 const ItemContainer = ({section}) => {
@@ -94,6 +106,47 @@ logPromise
 }) */
 
 //el finally se ejecuta en los dos casos
+
+
+/* const ItemContainer = ({section}) => {
+
+    const [listProducts, setListProducts] = useState([])
+    
+    const {categoryId} = useParams()
+
+    const getProducts = async () =>{
+        const productsCollection = collection(db, "products")
+        const docSnapshot = await getDocs(productsCollection)
+        const data = docSnapshot.docs.map(product => product.data())
+        return data
+    } 
+
+    useEffect(() => {
+        const handleProducts = async () => {
+            const res = await getProducts()
+            console.log(JSON.stringify(res, null, 2))
+
+
+            if(categoryId){
+                setListProducts(res.filter(products => products.category === categoryId))
+            } else{
+                setListProducts(res)
+            }
+        }
+
+        handleProducts()
+    }, [categoryId])
+
+    return(
+        <div className="main-container">
+            <h2>{section}</h2>
+        <div className='list-products'>
+            <ItemList dataProducts={listProducts}/>
+        </div>
+        </div>
+    )
+} */
+
 
 
 
