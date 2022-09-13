@@ -63,7 +63,7 @@ const Sales = () => {
             confirm
             ?
             <div className='end'>
-                <h3>Que disfrute su compra!!!</h3>
+                <h3>Disfruta tu compra!!</h3>
                 <p>Su codigo de seguimiento es:</p>
                 <b>{userId}</b>
             </div>
@@ -74,7 +74,7 @@ const Sales = () => {
                     {cartProducts.map((product) => <p key={product.id} product={product.title}> {product.title} x {product.quantity} unidades de ${product.price} = ${product.price * product.quantity}</p>)}
                     Total: ${totalPrice}
                 </div>
-                    <p><b>Ingrese sus datos para finalizar:</b></p>
+                    <p><b>Ingrese sus datos para finalizar la compra:</b></p>
                 <div >
                     <form className='form-container' onSubmit={handleSubmit(confirmedOrder)}>
 

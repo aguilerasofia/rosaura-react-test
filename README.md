@@ -1,3 +1,8 @@
+ROSAURA RESTAURA
+Rosaura Restaura es un proyecto e-commerce de desarrollo front-end en react para la plataforma coderhouse. 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
